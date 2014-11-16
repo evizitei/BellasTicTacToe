@@ -7,3 +7,5 @@ This one is built as a javascript app on the client side, and all the
 meat is in "TicTacToe.js".  If you clone the app as-is, you
 can run it with "node bin/http-server" from the root directory.
 This will get it up and running on port 8080.
+
+Currently can be played with live at http://bellas-tic_tac_toe.nodejitsu.com/
