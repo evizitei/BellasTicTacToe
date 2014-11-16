@@ -1,19 +1,32 @@
 var board;
 
-Board = function(canvasId){
+Board = function(canvasId, resetId){
   this.canvas = document.getElementById(canvasId);
+  this.resetButton = document.getElementById(resetId);
   this.context = this.canvas.getContext('2d');
 };
 
-Board.prototype.makePlay = function(e){
-  var cellCoordinates = this.getCellAddress(e.x, e.y);
-  console.log("Cell coordinates", cellCoordinates);
-  this.boardState[cellCoordinates.x][cellCoordinates.y] = this.currentPlayer;
+Board.prototype.changeActivePlayer = function(){
   if(this.currentPlayer == 1){
     this.currentPlayer = 2;
   } else {
     this.currentPlayer = 1;
   }
+};
+
+Board.prototype.updateState = function(coords, newValue){
+  var oldValue = this.boardState[coords.x][coords.y];
+  if(oldValue != 0){
+    alert("Someone has already played there!!");
+  }else{
+    this.boardState[coords.x][coords.y] = newValue;
+    this.changeActivePlayer();
+  }
+};
+
+Board.prototype.makePlay = function(e){
+  var cellCoordinates = this.getCellAddress(e.x, e.y);
+  this.updateState(cellCoordinates, this.currentPlayer);
   this.drawState();
 };
 
@@ -82,9 +95,12 @@ Board.prototype.initialize = function(){
     self.makePlay(e);
   };
   this.reset();
+  this.resetButton.onclick = function(){
+    self.reset();
+  };
 };
 
 window.onload = function(){
-  board = new Board("gameboard");
+  board = new Board("gameboard", "reset");
   board.initialize();
 };
