@@ -1,5 +1,5 @@
 canvas#gameboard {
-  background: url(emptyboard.png);
+  background: url(img/emptyboard.png);
   width: 400px;
   height: 400px;
 }
