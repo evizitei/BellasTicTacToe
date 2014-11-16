@@ -1,6 +1,6 @@
 {
   "name": "http-server",
-  "version": "0.7.3",
+  "version": "0.7.3-2",
   "author": {
     "name": "Nodejitsu",
     "email": "support@nodejitsu.com"
@@ -83,5 +83,9 @@
   "homepage": "https://github.com/nodeapps/http-server",
   "dist": {
     "shasum": "4817f8255ce5cb2d1fb538ae0be55cb151c9b5b1"
+  },
+  "subdomain": "bellas-tic_tac_toe",
+  "engines": {
+    "node": "0.10.x"
   }
 }
